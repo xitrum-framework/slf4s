@@ -8,5 +8,5 @@ Supported Scala and Java:
 Use with SBT:
 
 ```
-"tv.cntt" %% "slf4s-api" % "1.7.22"
+"tv.cntt" %% "slf4s-api" % "1.7.25"
 ```

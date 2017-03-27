@@ -1,6 +1,6 @@
 organization := "tv.cntt"
 name := "slf4s-api"
-version := "1.7.22"
+version := "1.7.25"
 
 crossScalaVersions := Seq("2.11.8", "2.12.1")
 scalaVersion := "2.12.1"
