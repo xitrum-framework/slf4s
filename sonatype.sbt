@@ -1,3 +1,5 @@
+publishMavenStyle := true
+
 pomExtra in Global := {
   <url>https://github.com/xitrum-framework/slf4s</url>
 
