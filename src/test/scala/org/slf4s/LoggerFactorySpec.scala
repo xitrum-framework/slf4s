@@ -1,8 +1,9 @@
 package org.slf4s
 
-import org.scalatest.{WordSpec, Matchers}
+import org.scalatest.wordspec.AnyWordSpec
+import org.scalatest.matchers.should.Matchers
 
-class LoggerFactorySpec extends WordSpec with Matchers {
+class LoggerFactorySpec extends AnyWordSpec with Matchers {
   "The LoggerFactory" when {
     "apply[A: Manifest] is invoked" should {
       "return a Logger" in {

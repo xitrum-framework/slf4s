@@ -1,8 +1,8 @@
 package org.slf4s
 
-import org.scalatest.WordSpec
+import org.scalatest.wordspec.AnyWordSpec
 
-class LoggerFactoryExampleSpec extends WordSpec {
+class LoggerFactoryExampleSpec extends AnyWordSpec {
   "The LoggerFactory should be familiar" in {
     val log = LoggerFactory.getLogger[LoggerFactoryExampleSpec]
     val importantValue = 10

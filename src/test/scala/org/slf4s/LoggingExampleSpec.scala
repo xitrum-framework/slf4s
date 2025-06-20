@@ -1,8 +1,8 @@
 package org.slf4s
 
-import org.scalatest.WordSpec
+import org.scalatest.wordspec.AnyWordSpec
 
-class LoggingExampleSpec extends WordSpec with Logging {
+class LoggingExampleSpec extends AnyWordSpec with Logging {
   "The Logging trait should be easy to use" in {
     val importantValue = 10
     log.debug(s"importantValue: $importantValue")

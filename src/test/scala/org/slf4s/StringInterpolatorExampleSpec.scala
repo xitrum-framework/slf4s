@@ -1,8 +1,8 @@
 package org.slf4s
 
-import org.scalatest.WordSpec
+import org.scalatest.wordspec.AnyWordSpec
 
-class StringInterpolatorExampleSpec extends WordSpec with Logging {
+class StringInterpolatorExampleSpec extends AnyWordSpec with Logging {
   "String interpolation should work" in {
     val name = "James"
     val height = 1.9d

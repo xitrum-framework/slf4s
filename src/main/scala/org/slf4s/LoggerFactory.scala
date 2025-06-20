@@ -4,10 +4,10 @@ import org.slf4j.{LoggerFactory => Underlying}
 import scala.reflect.ClassTag
 
 object LoggerFactory {
-  def apply[A: ClassTag]: Logger = getLogger[A]
+  inline def apply[A](using ct: ClassTag[A]): Logger = getLogger[A]
   def apply(name: String): Logger = getLogger(name)
-  def apply(clazz: Class[_]): Logger = getLogger(clazz)
-  def getLogger[A: ClassTag]: Logger = Logger(Underlying.getLogger(implicitly[ClassTag[A]].runtimeClass))
+  def apply(clazz: Class[?]): Logger = getLogger(clazz)
+  inline def getLogger[A](using ct: ClassTag[A]): Logger = Logger(Underlying.getLogger(ct.runtimeClass))
   def getLogger(name: String): Logger = Logger(Underlying.getLogger(name))
-  def getLogger(clazz: Class[_]): Logger = Logger(Underlying.getLogger(clazz))
+  def getLogger(clazz: Class[?]): Logger = Logger(Underlying.getLogger(clazz))
 }

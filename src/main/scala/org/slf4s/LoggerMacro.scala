@@ -1,65 +1,45 @@
 package org.slf4s
 
-import scala.reflect.macros.blackbox.Context
+import scala.quoted.*
 
-private object LoggerMacro {
-  def trace(c: Context { type PrefixType = Logger })(msg: c.Expr[String]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isTraceEnabled) $underlying.trace($msg)"
+object LoggerMacro {
+  def trace(logger: Expr[Logger], msg: Expr[String])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isTraceEnabled) $logger.underlying.trace($msg) }
   }
 
-  def traceT(c: Context { type PrefixType = Logger })(msg: c.Expr[String], t: c.Expr[Throwable]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isTraceEnabled) $underlying.trace($msg, $t)"
+  def traceT(logger: Expr[Logger], msg: Expr[String], t: Expr[Throwable])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isTraceEnabled) $logger.underlying.trace($msg, $t) }
   }
 
-  def debug(c: Context { type PrefixType = Logger })(msg: c.Expr[String]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isDebugEnabled) $underlying.debug($msg)"
+  def debug(logger: Expr[Logger], msg: Expr[String])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isDebugEnabled) $logger.underlying.debug($msg) }
   }
 
-  def debugT(c: Context { type PrefixType = Logger })(msg: c.Expr[String], t: c.Expr[Throwable]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isDebugEnabled) $underlying.debug($msg, $t)"
+  def debugT(logger: Expr[Logger], msg: Expr[String], t: Expr[Throwable])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isDebugEnabled) $logger.underlying.debug($msg, $t) }
   }
 
-  def info(c: Context { type PrefixType = Logger })(msg: c.Expr[String]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isInfoEnabled) $underlying.info($msg)"
+  def info(logger: Expr[Logger], msg: Expr[String])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isInfoEnabled) $logger.underlying.info($msg) }
   }
 
-  def infoT(c: Context { type PrefixType = Logger })(msg: c.Expr[String], t: c.Expr[Throwable]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isInfoEnabled) $underlying.info($msg, $t)"
+  def infoT(logger: Expr[Logger], msg: Expr[String], t: Expr[Throwable])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isInfoEnabled) $logger.underlying.info($msg, $t) }
   }
 
-  def warn(c: Context { type PrefixType = Logger })(msg: c.Expr[String]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isWarnEnabled) $underlying.warn($msg)"
+  def warn(logger: Expr[Logger], msg: Expr[String])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isWarnEnabled) $logger.underlying.warn($msg) }
   }
 
-  def warnT(c: Context { type PrefixType = Logger })(msg: c.Expr[String], t: c.Expr[Throwable]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isWarnEnabled) $underlying.warn($msg, $t)"
+  def warnT(logger: Expr[Logger], msg: Expr[String], t: Expr[Throwable])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isWarnEnabled) $logger.underlying.warn($msg, $t) }
   }
 
-  def error(c: Context { type PrefixType = Logger })(msg: c.Expr[String]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isErrorEnabled) $underlying.error($msg)"
+  def error(logger: Expr[Logger], msg: Expr[String])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isErrorEnabled) $logger.underlying.error($msg) }
   }
 
-  def errorT(c: Context { type PrefixType = Logger })(msg: c.Expr[String], t: c.Expr[Throwable]): c.universe.Tree = {
-    import c.universe._
-    val underlying = q"${c.prefix}.underlying"
-    q"if ($underlying.isErrorEnabled) $underlying.error($msg, $t)"
+  def errorT(logger: Expr[Logger], msg: Expr[String], t: Expr[Throwable])(using Quotes): Expr[Unit] = {
+    '{ if ($logger.underlying.isErrorEnabled) $logger.underlying.error($msg, $t) }
   }
 }
