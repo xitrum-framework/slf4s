@@ -16,4 +16,5 @@ libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-classic" % "1.4.14" % "test"
 )
 
+// https://github.com/xerial/sbt-sonatype
 publishTo := sonatypePublishToBundle.value

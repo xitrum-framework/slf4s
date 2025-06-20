@@ -2,6 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
   "packages": [
     "jdk@21",
-    "sbt@1.11.2"
+    "sbt@1.11.2",  // The actual version is specified in project/build.properties
+    "gnupg@2.4.7"
   ]
 }
