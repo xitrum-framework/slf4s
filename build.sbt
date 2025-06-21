@@ -1,17 +1,15 @@
 organization := "tv.cntt"
 name := "slf4s-api"
+version := "3.0.0-SNAPSHOT"
 
-// Same version as slf4j-api
-version := "2.0.13-SNAPSHOT"
-
-crossScalaVersions := Seq("3.3.3")
-scalaVersion := "3.3.3"
+crossScalaVersions := Seq("3.3.6")
+scalaVersion := "3.3.6"
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 scalacOptions := Seq("-unchecked", "-deprecation")
 
 libraryDependencies ++= Seq(
-  "org.slf4j" % "slf4j-api" % version.value,
+  "org.slf4j" % "slf4j-api" % "2.0.13",
 
   "org.scalatest" %% "scalatest" % "3.2.17" % "test",
   "org.mockito" % "mockito-core" % "5.7.0" % "test",
