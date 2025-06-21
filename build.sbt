@@ -3,7 +3,7 @@ name := "slf4s-api"
 version := "3.0.0-SNAPSHOT"
 
 crossScalaVersions := Seq("3.3.6")
-scalaVersion := "3.3.6"
+scalaVersion := "3.7.1"
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 scalacOptions := Seq("-unchecked", "-deprecation")
