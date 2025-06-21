@@ -1,6 +1,8 @@
 organization := "tv.cntt"
 name := "slf4s-api"
-version := "2.0.13"
+
+// Same version as slf4j-api
+version := "2.0.13-SNAPSHOT"
 
 crossScalaVersions := Seq("3.3.3")
 scalaVersion := "3.3.3"
