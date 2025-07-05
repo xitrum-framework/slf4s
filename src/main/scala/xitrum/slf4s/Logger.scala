@@ -1,4 +1,4 @@
-package org.slf4s
+package xitrum.slf4s
 
 import org.slf4j.{Logger => Underlying}
 

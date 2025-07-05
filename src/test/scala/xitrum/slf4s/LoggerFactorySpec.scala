@@ -1,4 +1,4 @@
-package org.slf4s
+package xitrum.slf4s
 
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers
